@@ -117,14 +117,6 @@ h1 {
   color: white;
   cursor: pointer;
 }
-
-/* İLETİŞİM MODAL */
-.contact-box {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-}
 </style>
 
 </head>
@@ -150,46 +142,40 @@ h1 {
 <h1>KÖLE SATIŞ</h1>
 
 <div class="video-grid">
-  <div class="video-card" data-video="video1.mp4">köle kadın zannediyo</div>
-  <div class="video-card" data-video="video2.mp4">köle erkeğe tapıyo</div>
-  <div class="video-card" data-video="xdd.mp4">köle geridön</div>
-  </div>
+  <div class="video-card" data-video="video1.mp4">video 1</div>
+  <div class="video-card" data-video="video2.mp4">video 2</div>
+  <div class="video-card" data-video="xdd.mp4">video 3</div>
+</div>
 
-<!-- VİDEO MODAL -->
+<!-- VIDEO MODAL -->
 <div class="modal" id="videoModal">
   <span class="close-btn" id="closeVideo">&times;</span>
   <video id="modalVideo" controls autoplay></video>
 </div>
 
-<!-- İLETİŞİM MODAL -->
-<div class="modal" id="modal">
-  <span class="close" id="closeBtn">&times;</span>
-
-  <video id="video" controls>
-    <source src="Video 4.mp4" type="video/mp4">
-  </video>
-</div>
+<audio id="bgMusic">
+  <source src="muzik.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-// VIDEO MODAL
 const cards = document.querySelectorAll(".video-card");
 const videoModal = document.getElementById("videoModal");
 const modalVideo = document.getElementById("modalVideo");
 const closeVideo = document.getElementById("closeVideo");
-
 const contactBtn = document.getElementById("contactBtn");
 
-// video kartları
+// VIDEO KARTLARI
 cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
     videoModal.classList.add("active");
+    modalVideo.play();
   });
 });
 
-// İLETİŞİM → video4
+// İLETİŞİM VİDEO
 contactBtn.addEventListener("click", () => {
-  modalVideo.src = "Video 4.mp4";
+  modalVideo.src = "video4.mp4";
   videoModal.classList.add("active");
   modalVideo.play();
 });
@@ -201,6 +187,7 @@ closeVideo.addEventListener("click", () => {
   modalVideo.currentTime = 0;
 });
 
+// MÜZİK (tek seferlik autoplay)
 document.addEventListener("click", () => {
   const music = document.getElementById("bgMusic");
   music.play();
@@ -208,23 +195,13 @@ document.addEventListener("click", () => {
 
 window.addEventListener("load", () => {
   const music = document.getElementById("bgMusic");
-
-  // sadece 1 kere çalsın
-  music.loop = false;
+  music.loop = true;
 
   music.play().catch(() => {
-    // tarayıcı engellerse sessiz fallback
     console.log("Autoplay engellendi");
   });
 });
-
 </script>
-
-<audio id="bgMusic">
-  <source src="muzik.mp3" type="audio/mpeg">
-</audio>
-
-
 
 </body>
 </html>
