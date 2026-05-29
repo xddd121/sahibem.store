@@ -14,7 +14,7 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
-  background: 
+  background:
     radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
     url("babam44.png") no-repeat center center fixed;
   background-size: cover;
@@ -142,8 +142,8 @@ h1 {
 <h1>KÖLE SATIŞ</h1>
 
 <div class="video-grid">
-  <div class="video-card" data-video="video1.mp4">video 1</div>
-  <div class="video-card" data-video="video2.mp4">video 2</div>
+  <div class="video-card" data-video="Video1.mp4">video 1</div>
+  <div class="video-card" data-video="Video2.mp4">video 2</div>
   <div class="video-card" data-video="xdd.mp4">video 3</div>
 </div>
 
@@ -175,7 +175,7 @@ cards.forEach(card => {
 
 // İLETİŞİM VİDEO
 contactBtn.addEventListener("click", () => {
-  modalVideo.src = "video4.mp4";
+  modalVideo.src = "Video 4.mp4";
   videoModal.classList.add("active");
   modalVideo.play();
 });
@@ -187,7 +187,7 @@ closeVideo.addEventListener("click", () => {
   modalVideo.currentTime = 0;
 });
 
-// MÜZİK (tek seferlik autoplay)
+// MÜZİK (tek tıkla başlatma)
 document.addEventListener("click", () => {
   const music = document.getElementById("bgMusic");
   music.play();
