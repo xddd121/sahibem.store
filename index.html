@@ -160,17 +160,14 @@ h1 {
 
 <script>
 const music = document.getElementById("bgMusic");
-const cards = document.querySelectorAll(".video-card");
-const videoModal = document.getElementById("videoModal");
-const modalVideo = document.getElementById("modalVideo");
-const closeVideo = document.getElementById("closeVideo");
-const contactBtn = document.getElementById("contactBtn");
 
-/* 🎵 HER TIKLAMADA MÜZİK BAŞTAN ÇALAR */
 document.addEventListener("click", () => {
   music.pause();
   music.currentTime = 0;
-  music.play();
+
+  setTimeout(() => {
+    music.play();
+  }, 50);
 });
 
 /* 🎬 VIDEO KARTLARI */
