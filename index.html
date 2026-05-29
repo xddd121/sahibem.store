@@ -14,7 +14,7 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
-  background: 
+  background:
     radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
     url("babam44.png") no-repeat center center fixed;
   background-size: cover;
@@ -153,6 +153,7 @@ h1 {
   <video id="modalVideo" controls autoplay></video>
 </div>
 
+<!-- AUDIO -->
 <audio id="bgMusic">
   <source src="muzik.mp3" type="audio/mpeg">
 </audio>
@@ -164,7 +165,7 @@ const modalVideo = document.getElementById("modalVideo");
 const closeVideo = document.getElementById("closeVideo");
 const contactBtn = document.getElementById("contactBtn");
 
-// VIDEO KARTLARI
+// video kartları
 cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
@@ -173,21 +174,21 @@ cards.forEach(card => {
   });
 });
 
-// İLETİŞİM VİDEO
+// iletişim video
 contactBtn.addEventListener("click", () => {
-  modalVideo.src = "video4.mp4";
+  modalVideo.src = "Video 4.mp4";
   videoModal.classList.add("active");
   modalVideo.play();
 });
 
-// KAPAT
+// kapat
 closeVideo.addEventListener("click", () => {
   videoModal.classList.remove("active");
   modalVideo.pause();
   modalVideo.currentTime = 0;
 });
 
-// MÜZİK (tek seferlik autoplay)
+// müzik başlatma
 document.addEventListener("click", () => {
   const music = document.getElementById("bgMusic");
   music.play();
