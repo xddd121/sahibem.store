@@ -170,32 +170,57 @@ const contactBtn = document.getElementById("contactBtn");
 
 /* MÜZİK */
 document.addEventListener("click", () => {
-  music.pause();
-  music.currentTime = 0;
-  music.play();
+  if (music.paused) {
+    music.play().catch(() => {});
+  }
 });
 
-/* VİDEO AÇ */
+/* VİDEO KARTLARI */
 cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
+    modalVideo.load();
+
     videoModal.classList.add("active");
-    modalVideo.play();
+
+    modalVideo.onloadeddata = () => {
+      modalVideo.play();
+    };
   });
 });
 
-/* CONTACT VIDEO */
-contactBtn.addEventListener("click", () => {
+/* İLETİŞİM */
+contactBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
   modalVideo.src = "./babam11.mp4";
+  modalVideo.load();
+
   videoModal.classList.add("active");
-  modalVideo.play();
+
+  modalVideo.onloadeddata = () => {
+    modalVideo.play();
+  };
 });
 
-/* KAPAT */
+/* MODAL KAPAT */
 closeVideo.addEventListener("click", () => {
   videoModal.classList.remove("active");
+
   modalVideo.pause();
   modalVideo.currentTime = 0;
+  modalVideo.src = "";
+});
+
+/* MODAL DIŞINA TIKLAYINCA KAPAT */
+videoModal.addEventListener("click", (e) => {
+  if (e.target === videoModal) {
+    videoModal.classList.remove("active");
+
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+    modalVideo.src = "";
+  }
 });
 </script>
 
