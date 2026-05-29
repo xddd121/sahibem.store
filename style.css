@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://picsum.photos/800/600");
+  background-size: cover;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+}
+
+/* LOGO */
+.logo a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  gap: 6px;
+}
+
+.logo .sahip {
+  color: #ffffff;
+}
+
+.logo .em {
+  color: #f7971f;
+}
+
+/* MENU */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.navbar ul li a {
+  color: #dcdcdc;
+  text-decoration: none;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #f7971f;
+  transform: translateY(-2px);
+}
+
+/* CENTER AREA */
+.lombo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 96px);
+}
+
+.ngff a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
