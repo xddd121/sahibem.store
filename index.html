@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Sahipem</title>
 
-<!-- ⭐ SİTE KÜÇÜK İKON (FAVICON) -->
-<link rel="icon" type="image/png" href="123.png">
+<!-- ⭐ FAVICON (EN SAĞLAM VERSİYON) -->
+<link rel="icon" type="image/png" href="./123.png?v=2">
 
 <style>
 * {
@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
   background:
     radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
-    url("babam44.png") no-repeat center center fixed;
+    url("./babam44.png") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -60,7 +60,6 @@ body {
   color: #f7971f;
 }
 
-/* BAŞLIK */
 h1 {
   color: white;
   text-align: center;
@@ -145,9 +144,9 @@ h1 {
 <h1>KÖLE SATIŞ</h1>
 
 <div class="video-grid">
-  <div class="video-card" data-video="Video1.mp4">köle sahibeye tapma</div>
-  <div class="video-card" data-video="Video2.mp4">köle sahip'e tapma</div>
-  <div class="video-card" data-video="xdd.mp4">xd</div>
+  <div class="video-card" data-video="./Video1.mp4">köle sahibeye tapma</div>
+  <div class="video-card" data-video="./Video2.mp4">köle sahip'e tapma</div>
+  <div class="video-card" data-video="./xdd.mp4">xd</div>
 </div>
 
 <!-- VIDEO MODAL -->
@@ -158,26 +157,25 @@ h1 {
 
 <!-- AUDIO -->
 <audio id="bgMusic">
-  <source src="muzik.mp3" type="audio/mpeg">
+  <source src="./muzik.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
-
 const cards = document.querySelectorAll(".video-card");
 const videoModal = document.getElementById("videoModal");
 const modalVideo = document.getElementById("modalVideo");
 const closeVideo = document.getElementById("closeVideo");
 const contactBtn = document.getElementById("contactBtn");
 
-/* 🎵 HER TIKLAMADA MÜZİK BAŞTAN */
+/* MÜZİK */
 document.addEventListener("click", () => {
   music.pause();
   music.currentTime = 0;
   music.play();
 });
 
-/* 🎬 VIDEO AÇMA */
+/* VİDEO AÇ */
 cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
@@ -186,14 +184,14 @@ cards.forEach(card => {
   });
 });
 
-/* 📩 İLETİŞİM VİDEO */
+/* CONTACT VIDEO */
 contactBtn.addEventListener("click", () => {
-  modalVideo.src = "Video 4.mp4";
+  modalVideo.src = "./Video4.mp4";
   videoModal.classList.add("active");
   modalVideo.play();
 });
 
-/* ❌ KAPAT */
+/* KAPAT */
 closeVideo.addEventListener("click", () => {
   videoModal.classList.remove("active");
   modalVideo.pause();
