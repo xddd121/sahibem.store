@@ -159,13 +159,21 @@ h1 {
 </audio>
 
 <script>
+const music = document.getElementById("bgMusic");
 const cards = document.querySelectorAll(".video-card");
 const videoModal = document.getElementById("videoModal");
 const modalVideo = document.getElementById("modalVideo");
 const closeVideo = document.getElementById("closeVideo");
 const contactBtn = document.getElementById("contactBtn");
 
-// video kartları
+/* 🎵 HER TIKLAMADA MÜZİK BAŞTAN ÇALAR */
+document.addEventListener("click", () => {
+  music.pause();
+  music.currentTime = 0;
+  music.play();
+});
+
+/* 🎬 VIDEO KARTLARI */
 cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
@@ -174,33 +182,18 @@ cards.forEach(card => {
   });
 });
 
-// iletişim video
+/* 📩 İLETİŞİM VİDEO */
 contactBtn.addEventListener("click", () => {
   modalVideo.src = "Video 4.mp4";
   videoModal.classList.add("active");
   modalVideo.play();
 });
 
-// kapat
+/* ❌ KAPAT */
 closeVideo.addEventListener("click", () => {
   videoModal.classList.remove("active");
   modalVideo.pause();
   modalVideo.currentTime = 0;
-});
-
-// müzik başlatma
-document.addEventListener("click", () => {
-  const music = document.getElementById("bgMusic");
-  music.play();
-}, { once: true });
-
-window.addEventListener("load", () => {
-  const music = document.getElementById("bgMusic");
-  music.loop = true;
-
-  music.play().catch(() => {
-    console.log("Autoplay engellendi");
-  });
 });
 </script>
 
