@@ -5,8 +5,8 @@
 }
 
 body {
-  background: url("./babam441.jpg") center center no-repeat;
-  background-size: cover;
+  min-height: 100vh;
+  background: url("babam441.jpg") center center / cover no-repeat;
 }
 
 /* NAVBAR */
