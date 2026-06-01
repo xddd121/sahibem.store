@@ -4,10 +4,9 @@
   box-sizing: border-box;
 }
 
-body{
-  min-height:100vh;
-  background:url("./babam441.jpg") center center no-repeat;
-  background-size:cover;
+body {
+  background: url("./babam441.jpg") center center no-repeat;
+  background-size: cover;
 }
 
 /* NAVBAR */
