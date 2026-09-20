@@ -6,7 +6,10 @@
 
 body {
   min-height: 100vh;
-  background: url("babam441.png") center center / cover no-repeat;
+  background-image: url("babam441.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 /* NAVBAR */
