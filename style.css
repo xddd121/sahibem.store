@@ -6,10 +6,20 @@
 
 body {
   min-height: 100vh;
-  background-image: url("babam441.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  position: relative;
+  overflow: hidden;
+  background: #0f0f0f;
+}
+
+/* FOTOĞRAF */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("babam441.png") center center / cover no-repeat;
+  transform: scaleX(1.33);
+  transform-origin: center;
+  z-index: -1;
 }
 
 /* NAVBAR */
