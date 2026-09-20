@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Sahipem</title>
 
-<!-- Favicon -->
+<!-- ⭐ FAVICON (EN SAĞLAM VERSİYON) -->
 <link rel="icon" type="image/png" href="./123.png?v=2">
 
 <style>
@@ -18,7 +18,7 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
   background:
-    radial-gradient(circle, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 80%),
+    radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
     url("./babam441.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -62,7 +62,7 @@ body {
 
 h1 {
   color: white;
-  text-align: center;
+  text-align: center;center
   margin-top: 40px;
 }
 
@@ -84,16 +84,12 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
   cursor: pointer;
   transition: 0.3s;
-  border-radius: 8px;
 }
 
 .video-card:hover {
   transform: scale(1.05);
-  background: rgba(255,255,255,0.15);
 }
 
 /* MODAL */
@@ -104,7 +100,6 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
 .modal.active {
@@ -114,7 +109,6 @@ h1 {
 .modal video {
   max-width: 80%;
   max-height: 80%;
-  border-radius: 8px;
 }
 
 .close-btn {
@@ -124,9 +118,9 @@ h1 {
   font-size: 35px;
   color: white;
   cursor: pointer;
-  z-index: 1001;
 }
 </style>
+
 </head>
 
 <body>
@@ -186,6 +180,7 @@ cards.forEach(card => {
   card.addEventListener("click", () => {
     modalVideo.src = card.dataset.video;
     modalVideo.load();
+
     videoModal.classList.add("active");
 
     modalVideo.onloadeddata = () => {
@@ -197,8 +192,10 @@ cards.forEach(card => {
 /* İLETİŞİM */
 contactBtn.addEventListener("click", (e) => {
   e.preventDefault();
+
   modalVideo.src = "./baba11.mp4";
   modalVideo.load();
+
   videoModal.classList.add("active");
 
   modalVideo.onloadeddata = () => {
@@ -209,6 +206,7 @@ contactBtn.addEventListener("click", (e) => {
 /* MODAL KAPAT */
 closeVideo.addEventListener("click", () => {
   videoModal.classList.remove("active");
+
   modalVideo.pause();
   modalVideo.currentTime = 0;
   modalVideo.src = "";
@@ -218,6 +216,7 @@ closeVideo.addEventListener("click", () => {
 videoModal.addEventListener("click", (e) => {
   if (e.target === videoModal) {
     videoModal.classList.remove("active");
+
     modalVideo.pause();
     modalVideo.currentTime = 0;
     modalVideo.src = "";
