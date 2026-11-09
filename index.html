@@ -1,10 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sahipem</title>
 
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="/123.png?v=3">
+
 <style>
+
 * {
   margin: 0;
   padding: 0;
@@ -14,13 +22,16 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
-  background: 
+
+  background:
     radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
     url("babam44.png") no-repeat center center fixed;
+
   background-size: cover;
 }
 
 /* NAVBAR */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -36,8 +47,13 @@ body {
   gap: 6px;
 }
 
-.logo .sahip { color: #fff; }
-.logo .em { color: #f7971f; }
+.logo .sahip {
+  color: #fff;
+}
+
+.logo .em {
+  color: #f7971f;
+}
 
 .navbar ul {
   list-style: none;
@@ -58,6 +74,7 @@ body {
 }
 
 /* BAŞLIK */
+
 h1 {
   color: white;
   text-align: center;
@@ -65,6 +82,7 @@ h1 {
 }
 
 /* VIDEO GRID */
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
@@ -91,6 +109,7 @@ h1 {
 }
 
 /* MODAL */
+
 .modal {
   display: none;
   position: fixed;
@@ -98,6 +117,7 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal.active {
@@ -118,20 +138,40 @@ h1 {
   cursor: pointer;
 }
 
-/* İLETİŞİM MODAL */
-.contact-box {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-}
-</style>
+/* MOBİL */
 
+@media (max-width: 700px) {
+  .navbar {
+    padding: 18px 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, 150px);
+  }
+
+  .video-card {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <div class="navbar">
+
   <div class="logo">
     <a href="#">
       <span class="sahip">sahip</span>
@@ -145,98 +185,164 @@ h1 {
     <li><a href="#">Hakkımızda</a></li>
     <li><a id="contactBtn">İletişim</a></li>
   </ul>
+
 </div>
+
+<!-- BAŞLIK -->
 
 <h1>KÖLE SATIŞ</h1>
 
+<!-- VIDEO KARTLARI -->
+
 <div class="video-grid">
-  <div class="video-card" data-video="video1.mp4">köle kadın zannediyo</div>
-  <div class="video-card" data-video="video2.mp4">köle erkeğe tapıyo</div>
-  <div class="video-card" data-video="xdd.mp4">köle geridön</div>
+
+  <div class="video-card" data-video="video1.mp4">
+    köle kadın zannediyo
   </div>
 
-<!-- VİDEO MODAL -->
+  <div class="video-card" data-video="video2.mp4">
+    köle erkeğe tapıyo
+  </div>
+
+  <div class="video-card" data-video="xdd.mp4">
+    köle geridön
+  </div>
+
+</div>
+
+<!-- TEK VIDEO MODAL -->
+
 <div class="modal" id="videoModal">
+
   <span class="close-btn" id="closeVideo">&times;</span>
-  <video id="modalVideo" controls autoplay></video>
+
+  <video id="modalVideo" controls playsinline></video>
+
 </div>
 
-<!-- İLETİŞİM MODAL -->
-<div class="modal" id="modal">
-  <span class="close" id="closeBtn">&times;</span>
-
-  <video id="video" controls>
-    <source src="kaka1.mp4" type="video/mp4">
-  </video>
-</div>
-
-<div class="modal" id="videoModal>"
-<span class="close" id="closeBtn">&times;</span>
-
-  <video id="video" controls>
-    <source src="kaka3.mp4" type="video/mp4">
-  </video>
-</div>
-
-
-
-
-
-<script>
-// VIDEO MODAL
-const cards = document.querySelectorAll(".video-card");
-const videoModal = document.getElementById("videoModal");
-const modalVideo = document.getElementById("modalVideo");
-const closeVideo = document.getElementById("closeVideo");
-
-const contactBtn = document.getElementById("contactBtn");
-
-// video kartları
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    modalVideo.src = card.dataset.video;
-    videoModal.classList.add("active");
-  });
-});
-
-// İLETİŞİM → video4
-contactBtn.addEventListener("click", () => {
-  modalVideo.src = "video4.mp4";
-  videoModal.classList.add("active");
-  modalVideo.play();
-});
-
-// KAPAT
-closeVideo.addEventListener("click", () => {
-  videoModal.classList.remove("active");
-  modalVideo.pause();
-  modalVideo.currentTime = 0;
-});
-
-document.addEventListener("click", () => {
-  const music = document.getElementById("bgMusic");
-  music.play();
-}, { once: true });
-
-window.addEventListener("load", () => {
-  const music = document.getElementById("bgMusic");
-
-  // sadece 1 kere çalsın
-  music.loop = false;
-
-  music.play().catch(() => {
-    // tarayıcı engellerse sessiz fallback
-    console.log("Autoplay engellendi");
-  });
-});
-
-</script>
+<!-- ARKA PLAN MÜZİĞİ -->
 
 <audio id="bgMusic">
   <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
+<script>
 
+// ELEMENTLER
+
+const cards = document.querySelectorAll(".video-card");
+
+const videoModal = document.getElementById("videoModal");
+
+const modalVideo = document.getElementById("modalVideo");
+
+const closeVideo = document.getElementById("closeVideo");
+
+const contactBtn = document.getElementById("contactBtn");
+
+const music = document.getElementById("bgMusic");
+
+
+// VIDEO AÇMA FONKSİYONU
+
+function openVideo(src) {
+
+  modalVideo.pause();
+
+  modalVideo.src = src;
+
+  videoModal.classList.add("active");
+
+  modalVideo.load();
+
+  modalVideo.play().catch(error => {
+    console.log("Video oynatma hatası:", error);
+  });
+
+}
+
+
+// VIDEO KARTLARI
+
+cards.forEach(card => {
+
+  card.addEventListener("click", () => {
+
+    openVideo(card.dataset.video);
+
+  });
+
+});
+
+
+// İLETİŞİM BUTONU - VIDEO4
+
+contactBtn.addEventListener("click", () => {
+
+  openVideo("video4.mp4");
+
+});
+
+
+// VIDEO KAPATMA
+
+function closeModal() {
+
+  videoModal.classList.remove("active");
+
+  modalVideo.pause();
+
+  modalVideo.removeAttribute("src");
+
+  modalVideo.load();
+
+}
+
+
+// X BUTONU
+
+closeVideo.addEventListener("click", closeModal);
+
+
+// BOŞ ALANA TIKLAYINCA KAPAT
+
+videoModal.addEventListener("click", (e) => {
+
+  if (e.target === videoModal) {
+
+    closeModal();
+
+  }
+
+});
+
+
+// ESC TUŞUYLA KAPATMA
+
+document.addEventListener("keydown", (e) => {
+
+  if (e.key === "Escape") {
+
+    closeModal();
+
+  }
+
+});
+
+
+// MÜZİK - İLK ETKİLEŞİMDE BİR KERE ÇAL
+
+music.loop = false;
+
+document.addEventListener("click", () => {
+
+  music.play().catch(error => {
+    console.log("Müzik oynatılamadı:", error);
+  });
+
+}, { once: true });
+
+</script>
 
 </body>
 </html>
