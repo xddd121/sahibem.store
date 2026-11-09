@@ -9,7 +9,10 @@
 <title>Sahipem</title>
 
 <!-- FAVICON -->
-<link rel="icon" type="image/png" href="/123.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="123.png?v=4">
+<link rel="icon" type="image/png" sizes="192x192" href="123.png?v=4">
+<link rel="shortcut icon" href="123.png?v=4">
+<link rel="apple-touch-icon" href="123.png?v=4">
 
 <style>
 
@@ -22,11 +25,9 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   min-height: 100vh;
-
   background:
     radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%),
     url("babam44.png") no-repeat center center fixed;
-
   background-size: cover;
 }
 
@@ -42,8 +43,10 @@ body {
 .logo a {
   text-decoration: none;
   display: flex;
+  align-items: center;
   font-size: 34px;
   font-weight: 700;
+  letter-spacing: 1px;
   gap: 6px;
 }
 
@@ -71,6 +74,7 @@ body {
 
 .navbar ul li a:hover {
   color: #f7971f;
+  transform: translateY(-2px);
 }
 
 /* BAŞLIK */
@@ -141,6 +145,7 @@ h1 {
 /* MOBİL */
 
 @media (max-width: 700px) {
+
   .navbar {
     padding: 18px 20px;
     flex-direction: column;
@@ -161,6 +166,7 @@ h1 {
     width: 150px;
     height: 150px;
   }
+
 }
 
 </style>
@@ -196,11 +202,11 @@ h1 {
 
 <div class="video-grid">
 
-  <div class="video-card" data-video="video1.mp4">
+  <div class="video-card" data-video="kaka1.mp4">
     köle kadın zannediyo
   </div>
 
-  <div class="video-card" data-video="video2.mp4">
+  <div class="video-card" data-video="kaka3.mp4">
     köle erkeğe tapıyo
   </div>
 
@@ -210,7 +216,7 @@ h1 {
 
 </div>
 
-<!-- TEK VIDEO MODAL -->
+<!-- VIDEO MODAL -->
 
 <div class="modal" id="videoModal">
 
@@ -220,7 +226,7 @@ h1 {
 
 </div>
 
-<!-- ARKA PLAN MÜZİĞİ -->
+<!-- MÜZİK -->
 
 <audio id="bgMusic">
   <source src="muzik.mp3" type="audio/mpeg">
@@ -231,24 +237,17 @@ h1 {
 // ELEMENTLER
 
 const cards = document.querySelectorAll(".video-card");
-
 const videoModal = document.getElementById("videoModal");
-
 const modalVideo = document.getElementById("modalVideo");
-
 const closeVideo = document.getElementById("closeVideo");
-
 const contactBtn = document.getElementById("contactBtn");
-
 const music = document.getElementById("bgMusic");
 
-
-// VIDEO AÇMA FONKSİYONU
+// VIDEO AÇMA
 
 function openVideo(src) {
 
   modalVideo.pause();
-
   modalVideo.src = src;
 
   videoModal.classList.add("active");
@@ -261,28 +260,21 @@ function openVideo(src) {
 
 }
 
-
 // VIDEO KARTLARI
 
 cards.forEach(card => {
 
   card.addEventListener("click", () => {
-
     openVideo(card.dataset.video);
-
   });
 
 });
 
-
-// İLETİŞİM BUTONU - VIDEO4
+// İLETİŞİM - VIDEO4
 
 contactBtn.addEventListener("click", () => {
-
   openVideo("video4.mp4");
-
 });
-
 
 // VIDEO KAPATMA
 
@@ -291,46 +283,36 @@ function closeModal() {
   videoModal.classList.remove("active");
 
   modalVideo.pause();
-
   modalVideo.removeAttribute("src");
-
   modalVideo.load();
 
 }
 
-
 // X BUTONU
 
 closeVideo.addEventListener("click", closeModal);
-
 
 // BOŞ ALANA TIKLAYINCA KAPAT
 
 videoModal.addEventListener("click", (e) => {
 
   if (e.target === videoModal) {
-
     closeModal();
-
   }
 
 });
 
-
-// ESC TUŞUYLA KAPATMA
+// ESC İLE KAPAT
 
 document.addEventListener("keydown", (e) => {
 
   if (e.key === "Escape") {
-
     closeModal();
-
   }
 
 });
 
-
-// MÜZİK - İLK ETKİLEŞİMDE BİR KERE ÇAL
+// MÜZİK
 
 music.loop = false;
 
